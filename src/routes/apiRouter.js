@@ -1,6 +1,6 @@
 import express from 'express';
 import AuthRouter from './auth/routes.js';
-import InventoryRouter from './product/routes.js';
+import InventoryRouter from './inventory/routes.js';
 
 const router = express.Router();
 

@@ -35,8 +35,11 @@ export const loginUser = async (req, res) => {
                 }
             }
         });
-    } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+    } catch {
+        res.status(500).json({
+            success: false,
+            message: "An internal error occurred. Please try again later."
+        });
     }
 };
 
@@ -63,9 +66,13 @@ export const createUser = async (req, res) => {
 
     } catch (error) {
         if (error.code === 11000) {
-            return res.status(400).json({ message: "User already exists" });
+            return res.status(400).json({
+                success: false,
+                message: "A User with this email already exists."
+            });
         }
-        res.status(500).json({ success: false, message: error.message });
+
+        res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
 
@@ -85,6 +92,9 @@ export const getAllUsers = async (req, res) => {
             data: { users }
         });
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
+        res.status(500).json({
+            success: false,
+            message: "An internal error occurred. Please try again later."
+        });
     }
 };
