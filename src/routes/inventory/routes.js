@@ -9,15 +9,15 @@ const router = express.Router();
 
 router.get('/products', getAllProducts);
 router.get('/product/:id', getProductWithId);
-router.post('/create-product', protect, authorize("user"), createProduct);
-router.put('/update-product/:id', protect, authorize("user"), updateProduct);
-router.delete('/delete-product/:id', protect, authorize("user"), deleteProduct);
+router.post('/create-product', protect, authorize("admin"), createProduct);
+router.put('/update-product/:id', protect, authorize("admin"), updateProduct);
+router.delete('/delete-product/:id', protect, authorize("admin"), deleteProduct);
 
 // Category
 router.get('/categories', getAllCategory);
 router.get('/category/:id', getCategoryWithId);
-router.post('/create-category', protect, authorize("user"), createCategory);
-router.put('/update-category/:id', protect, authorize("user"), updateCategory);
-router.delete('/delete-category/:id', protect, authorize("user"), deleteCategory);
+router.post('/create-category', protect, authorize("admin"), createCategory);
+router.put('/update-category/:id', protect, authorize("admin"), updateCategory);
+router.delete('/delete-category/:id', protect, authorize("admin"), deleteCategory);
 
 export default router;
