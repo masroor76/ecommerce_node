@@ -1,0 +1,2 @@
+JWT_SECRET=********************
+MONGO_URI=mongodb://<username>:<password>@<db-host>:27017/<db_name>?authSource=admin
